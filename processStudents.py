@@ -29,7 +29,7 @@ infile = open('students.csv', 'r')
 # create a csv object from the file object
 reader = csv.reader(infile, delimiter = ',')
 
-#skip the header row
+#skip the header row & copy for processedStudents.csv
 next(reader)
 
 #create an outfile object for the pocessed record
@@ -39,6 +39,8 @@ writer = csv.writer(outfile, delimiter = ',')
 #create a new dictionary named 'student_dict'
 student_dict = {}
 
+#add headers to processedStudents.csv
+writer.writerow(['stud_id', 'pin', 'firstname','lastname','city','state','major','classification','gpa'])
 
 #use a loop to iterate through each row of the file
 for row in reader:
